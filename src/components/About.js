@@ -1,4 +1,5 @@
 import React from "react";
+import { ProgressPlugin } from "webpack";
 
 function About() {
   return (
