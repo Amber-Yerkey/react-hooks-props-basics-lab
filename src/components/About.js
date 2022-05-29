@@ -1,16 +1,21 @@
 import React from "react";
-import { ProgressPlugin } from "webpack";
+import Links from "./Links";
 
-function About() {
-  return (
-    <div id="about">
+function About(props) {
+  console.log(props.bio)
+  const isBio = props.bio;
+  if(('bio' in props) && (isBio !== "")){
+    return <div id="about">
       <h2>About Me</h2>
-      {/* add if statement here?? */}
-      <p>Put the bio in here</p>
+      <p>{isBio}</p>
       <img src="https://i.imgur.com/mV8PQxj.gif" alt="I made this" />
-      {/* add your <Links /> component here */}
+      <Links github={props.github} linkedin={props.linkedin} />
     </div>
-  );
+  } else {
+    return <div id="about">
+    <h2>About Me</h2>
+    <img src="https://i.imgur.com/mV8PQxj.gif" alt="I made this" />
+  </div>
+  }
 }
-
 export default About;
